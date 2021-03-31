@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+  </head>
+  <body>
+    {%block content%}
+    <div class="container">
+      <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+           <h1>{{info_message}}{{error_message}}</h1>
+          <h3 class="alert alert-light border rounded text-danger ">Log In</h3>
+          <form action="/login/" method="POST">
+            {%csrf_token%} {% if error %}
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+            {%endif%}
+
+            <!--email -->
+            <div class="form-group">
+              <label>E-mail</label>
+              <input
+                value="{{values.email}}"
+                type="email"
+                name="mail"
+                class="form-control"
+                placeholder="example@gmail.com"
+                aria-describedby="helpId"
+                required
+              />
+            </div>
+            <!--password -->
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="**********"
+                aria-describedby="helpId"
+                required
+              />
+            </div>
+
+            <!--submit -->
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Log In"
+                class="btn btn-outline-success  col-lg-5" style="border-radius:20px;"
+              />
+              <a href="/forget_password" class="col-lg-5 btn btn-outline-primary" style="border-radius:20px;">Forget password</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {%endblock%}
+  </body>
+</html>
