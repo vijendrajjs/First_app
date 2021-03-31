@@ -119,9 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
 MEDIA_URL = "/image/product/"
 MEDIA_ROOT = BASE_DIR
+
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
